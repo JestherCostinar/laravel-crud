@@ -101,24 +101,25 @@
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </div>
                 </th>
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" class="py-3 px-6 w-48">
                     Product name
                 </th>
-                <th scope="col" class="py-3 px-6">
-                    Color
+                <th scope="col" class="py-3 px-6 w-96">
+                    Description
                 </th>
-                <th scope="col" class="py-3 px-6">
-                    Category
-                </th>
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" class="py-3 px-6 w-48">
                     Price
                 </th>
-                <th scope="col" class="py-3 px-6">
+                <th scope="col" class="py-3 px-6 w-48">
+                    Image
+                </th>
+                <th scope="col" class="py-3 px-6 w-48">
                     Action
                 </th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($products as $product)                    
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="p-4 w-4">
                     <div class="flex items-center">
@@ -127,22 +128,22 @@
                     </div>
                 </td>
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
+                    {{ $product->product_name }}
                 </th>
                 <td class="py-4 px-6">
-                    Sliver
+                    {{ $product->product_description }}
                 </td>
                 <td class="py-4 px-6">
-                    Laptop
+                    {{ $product->price }}
                 </td>
                 <td class="py-4 px-6">
-                    $2999
+                    {{ $product->image }}
                 </td>
                 <td class="py-4 px-6">
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> | 
                     <a href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</a>
                 </td>
-
+             @endforeach
         </tbody>
     </table>
 </div>
