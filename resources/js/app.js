@@ -1,2 +1,2 @@
 import './bootstrap';
-import 'flowbite';11
+import 'flowbite';
