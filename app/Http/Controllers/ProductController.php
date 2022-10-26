@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('index', [
-            'products' => Product::all()
+            'products' => Product::orderBy('created_at', 'desc')->paginate(5)
         ]);
     }
 
