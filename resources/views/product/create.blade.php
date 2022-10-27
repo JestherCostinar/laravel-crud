@@ -30,13 +30,13 @@
             </div>
             <div class="mb-6">
                 <label for="product_price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Product price <span class="text-red-500"> *</span></label>
-                <input type="number" id="product_price" name="product_price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Product price..." value="{{ old('price') }}">
-                <small class="text-red-500 font-semibold">@error('product_name') {{ $errors->first('price') }} @enderror</small>
+                <input type="number" id="price" name="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Product price..." value="{{ old('price') }}">
+                <small class="text-red-500 font-semibold">@error('price') {{ $errors->first('price') }} @enderror</small>
             </div>
             <div class="mb-6">
                 <label for="product_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description<span class="text-red-500"> *</span></label>
                 <textarea id="ck_editor" name="product_description" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">{{ old('product_description') }}</textarea>
-                <small class="text-red-500 font-semibold">@error('product_name') {{ $errors->first('product_description') }} @enderror</small>
+                <small class="text-red-500 font-semibold">@error('product_description') {{ $errors->first('product_description') }} @enderror</small>
             </div>
 
             

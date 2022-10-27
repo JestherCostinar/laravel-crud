@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductFormRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -35,19 +36,13 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductFormRequest $request)
     {
-        $request->validate([
-            'product_name' => 'required|unique:products|max:255',
-            'price' => 'required',
-            'product_description' => 'required',
-            'image' => ['required', 'mimes:png,jpg,jpeg', 'max:5048'],        
-        ]);
-
+        $request->validated();
 
         Product::create([
             'product_name' => $request->product_name,
-            'price' => $request->product_price,
+            'price' => $request->price,
             'product_description' => $request->product_description,
             'image' => 'temporary',
         ]);
