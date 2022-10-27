@@ -25,19 +25,22 @@
             @csrf
             <div class="mb-6">
                 <label for="product_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Product name: <span class="text-red-500"> *</span></label>
-                <input type="text" id="product_name" name="product_name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Product name..." >
+                <input type="text" id="product_name" name="product_name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Product name..." value="{{ old('product_name') }}">
+                <small class="text-red-500 font-semibold">@error('product_name') {{ $errors->first('product_name') }} @enderror</small>
             </div>
             <div class="mb-6">
                 <label for="product_price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Product price <span class="text-red-500"> *</span></label>
-                <input type="text" id="product_price" name="product_price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Product description...">
+                <input type="number" id="product_price" name="product_price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Product price..." value="{{ old('price') }}">
+                <small class="text-red-500 font-semibold">@error('product_name') {{ $errors->first('price') }} @enderror</small>
             </div>
             <div class="mb-6">
-                <label for="product_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
-                <textarea id="ck_editor" name="product_description" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"></textarea>
+                <label for="product_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description<span class="text-red-500"> *</span></label>
+                <textarea id="ck_editor" name="product_description" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">{{ old('product_description') }}</textarea>
+                <small class="text-red-500 font-semibold">@error('product_name') {{ $errors->first('product_description') }} @enderror</small>
             </div>
 
             
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="user_avatar">Product Image</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="user_avatar">Product Image<span class="text-red-500"> *</span></label>
             <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" name="product_image" type="file">
             <div class="mb-6 mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A product image is useful to showcase the product image</div>
 
