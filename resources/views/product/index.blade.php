@@ -9,6 +9,17 @@
     
 @section('content')
 
+@if (session()->has('message'))
+    <div class="mx-auto mx-10  pb-10">
+        <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+            Warning
+        </div>
+        <div class="border border-t-1 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+            {{ session()->get('message') }}
+        </div>
+    </div>
+@endif
+
 <div class="overflow-x-hidden relative shadow-lg sm:rounded-lg mx-10 p-5">
     <div class="flex justify-between items-center pb-4">
         <div>
@@ -65,6 +76,7 @@
             <a href="{{ route('product.create') }}" class="flex left-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create a Product</a>
         </div>
     </div>
+    
     <table class="table-auto text-sm text-left text-gray-500 dark:text-gray-400 mb-2">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -114,7 +126,12 @@
                 </td>
                 <td class="py-4 px-6">
                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> | 
-                    <a href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</a>
+                    <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</button>
+                    </form>
+
                 </td>
              @endforeach
         </tbody>

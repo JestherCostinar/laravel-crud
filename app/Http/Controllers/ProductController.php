@@ -89,6 +89,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if($id)
+            Product::destroy($id);
+
+        return redirect(route('product'))->with('message', 'Product has been deleted');
     }
+
+
 }
