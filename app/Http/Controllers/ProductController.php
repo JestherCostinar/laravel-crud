@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('product.index', [
-            'products' => Product::orderBy('created_at', 'desc')->paginate(5)
+            'products' => Product::orderBy('created_at', 'desc')->paginate(3)
         ]);
     }
 
@@ -37,7 +37,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create([
+            'product_name' => $request->product_name,
+            'price' => $request->product_price,
+            'product_description' => $request->product_description,
+            'image' => 'temporary',
+        ]);
+
+        return redirect(route('product'));
     }
 
     /**
