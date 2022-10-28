@@ -44,7 +44,7 @@ class ProductController extends Controller
             'product_name' => $request->product_name,
             'price' => $request->price,
             'product_description' => $request->product_description,
-            'image' => 'temporary',
+            'image' => $request->image,
         ]);
 
         return redirect(route('product'));
@@ -69,7 +69,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('product.edit', [
+            'product' => Product::where('id', $id)->first()
+        ]);
     }
 
     /**
@@ -79,9 +81,17 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductFormRequest $request, $id)
     {
-        //
+        $request->validated();
+
+        Product::where('id', $id)->update(
+            $request->except([
+                '_token', '_method'
+            ])
+        );
+
+        return redirect(route('product'));
     }
 
     /**

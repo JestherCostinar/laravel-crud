@@ -24,8 +24,8 @@ class ProductFormRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'product_name' => 'required|unique:products|max:255',
-            'price' => 'required',
+            'product_name' => 'required|max:255|unique:products,product_name,' . $this->id,
+            'price' => 'required|min:0',
             'product_description' => 'required',
             'image' => ['mimes:png,jpg,jpeg', 'max:5048'],
         ];
