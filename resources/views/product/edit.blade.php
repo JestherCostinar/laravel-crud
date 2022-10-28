@@ -21,7 +21,7 @@
 
         <div class=" p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" >
             
-            <form action="{{ route('product.update', $product->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('product.update', $product->id ) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
 

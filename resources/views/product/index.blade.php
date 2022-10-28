@@ -127,7 +127,7 @@
                     </div>
                 </td>
                 <th scope="row" class="py-4 px-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $product->product_name }}
+                   <a href="{{ route('product.show', $product->id) }}" class="underline text-blue-500"> {{ $product->product_name }}</a>
                 </th>
                 <td class="py-4 px-6">
                     {{ $product->product_description }}
