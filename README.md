@@ -29,7 +29,7 @@ Programming Languages and Framework:
 APP_KEY= "YOUR GENERATED APP KEY"
 APP_DEBUG=true
 ```
-> to generate APP_KET run this command:
+> to generate APP_KEY run this command:
 ```
 php artisan key:generate
 ```
@@ -37,7 +37,7 @@ php artisan key:generate
 - Then run
 
 ```
-php spark serve
+php artisan serve
 ```
 
 ## 👨‍💻Contact Me 🚀🔵
